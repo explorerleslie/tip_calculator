@@ -5,9 +5,13 @@ tax = gets.chomp.to_f
 puts "How much would you like to tip?"
 tip = gets.chomp.to_f
 
-tax_value = meal * (tax / 100)
+def percentage_of_value(value, percentage)
+    return value * (percentage / 100)
+ end
+
+tax_value = percentage_of_value(meal, tax)
 meal_with_tax = meal + tax_value
-tip_value = meal * (tip / 100)
+tip_value = percentage_of_value(meal, tip)
 total_cost = meal_with_tax + tip_value
 
 puts "The pre-tax cost of your meal was $#{meal}."
